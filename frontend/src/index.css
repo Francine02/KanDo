@@ -4,4 +4,6 @@
 
 * {
     font-family: "Lora";
+    scrollbar-width: thin;
+    scrollbar-color: gray #f0e9dd;
 }
