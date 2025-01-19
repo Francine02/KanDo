@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.toResponseDTO(user);
     }
 
-    private User getUser(Authentication authentication) {
+    public User getUser(Authentication authentication) {
         OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authentication;
         Map<String, Object> attributes = oauthToken.getPrincipal().getAttributes();
 
