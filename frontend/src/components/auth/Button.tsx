@@ -4,13 +4,19 @@ import Loading from "./Loading";
 export default function Button() {
     const [loading, setLoading] = useState(false);
 
-    const handleSocialAccount = () => {
-        setLoading(!loading);
+    const handleSocialAccount = (e: React.FormEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        setLoading(true);
+
+        setTimeout(() => {
+            window.location.href = "http://localhost:5173/oauth2/authorization/google"; //MUDAR PELA URL
+        }, 1000);
     }
 
     return (
         <button
             onClick={handleSocialAccount}
+            disabled={loading}
             className="bg-[#eb97a4] border border-gray-300 hover:opacity-90 active:bg-[#eb97a4] text-md rounded-full w-56 p-1.5 gap-3 mb-8 flex justify-center items-center">
 
             {loading ? (
