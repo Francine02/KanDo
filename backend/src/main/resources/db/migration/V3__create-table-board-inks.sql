@@ -2,5 +2,5 @@
 CREATE TABLE tb_board_links (
     uuid CHAR(36) PRIMARY KEY,
     board_id BIGINT UNIQUE,
-    CONSTRAINT fk_board_id FOREIGN KEY (board_id) REFERENCES tb_boards(id) ON DELETE CASCADE
+    CONSTRAINT fk_tb_board_links_board_id FOREIGN KEY (board_id) REFERENCES tb_boards(id) ON DELETE CASCADE
 );
