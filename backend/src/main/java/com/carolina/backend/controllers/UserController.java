@@ -1,4 +1,4 @@
-package com.carolina.backend.controller;
+package com.carolina.backend.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.carolina.backend.controller.swagger.UserControllerSwagger;
+import com.carolina.backend.controllers.swagger.UserControllerSwagger;
 import com.carolina.backend.dtos.response.UserInfoResponseDTO;
-import com.carolina.backend.service.impl.UserServiceImpl;
+import com.carolina.backend.services.UserService;
 
 import lombok.AllArgsConstructor;
 
@@ -18,7 +18,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UserController implements UserControllerSwagger {
 
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     @GetMapping
     @ResponseBody

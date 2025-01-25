@@ -1,4 +1,4 @@
-package com.carolina.backend.mapper;
+package com.carolina.backend.mappers;
 
 import org.mapstruct.Mapper;
 

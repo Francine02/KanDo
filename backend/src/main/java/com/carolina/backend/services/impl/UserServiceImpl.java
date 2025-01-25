@@ -1,4 +1,4 @@
-package com.carolina.backend.service.impl;
+package com.carolina.backend.services.impl;
 
 import java.util.Map;
 
@@ -7,10 +7,10 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.stereotype.Service;
 
 import com.carolina.backend.dtos.response.UserInfoResponseDTO;
-import com.carolina.backend.mapper.UserMapper;
+import com.carolina.backend.mappers.UserMapper;
 import com.carolina.backend.model.User;
 import com.carolina.backend.repositories.UserRepository;
-import com.carolina.backend.service.UserService;
+import com.carolina.backend.services.UserService;
 
 import lombok.AllArgsConstructor;
 

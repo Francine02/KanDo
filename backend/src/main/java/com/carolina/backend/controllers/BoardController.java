@@ -1,4 +1,4 @@
-package com.carolina.backend.controller;
+package com.carolina.backend.controllers;
 
 import java.util.List;
 
@@ -12,16 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.carolina.backend.controllers.swagger.BoardControllerSwagger;
 import com.carolina.backend.dtos.request.BoardRequestDTO;
 import com.carolina.backend.dtos.response.BoardResponseDTO;
-import com.carolina.backend.service.BoardService;
+import com.carolina.backend.services.BoardService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RequestMapping("/boards")
 @RestController
-public class BoardController {
+public class BoardController implements BoardControllerSwagger {
 
     private final BoardService boardService;
 
@@ -40,14 +41,15 @@ public class BoardController {
     }
 
     @PostMapping("/create-board")
-    public ResponseEntity<BoardResponseDTO> saveBoard(Authentication authentication, @RequestBody BoardRequestDTO boardRequestDTO) {
+    public ResponseEntity<BoardResponseDTO> saveBoard(Authentication authentication,
+            @RequestBody BoardRequestDTO boardRequestDTO) {
         BoardResponseDTO board = boardService.saveBoard(boardRequestDTO, authentication);
 
         return ResponseEntity.status(201).body(board);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<BoardResponseDTO> deleteBoard(Authentication authentication, @PathVariable Long id) {
+    public ResponseEntity<Void> deleteBoard(Authentication authentication, @PathVariable Long id) {
         boardService.deleteBoard(id, authentication);
 
         return ResponseEntity.noContent().build();

@@ -1,4 +1,4 @@
-package com.carolina.backend.service;
+package com.carolina.backend.services;
 
 import java.util.List;
 
