@@ -1,5 +1,7 @@
 package com.carolina.backend.model;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -16,7 +18,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_board_links")
-public class Link {
+public class Link implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(unique = true, nullable = false)

@@ -1,11 +1,10 @@
 package com.carolina.backend.model;
 
-import com.carolina.backend.enums.Permissions;
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_board_users")
-public class BoardUserLink {
+public class BoardUserLink implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,9 +26,6 @@ public class BoardUserLink {
     @JoinColumn(name = "board_id")
     @JsonIgnore
     private Board board;
-
-    @Enumerated(EnumType.STRING)
-    private Permissions permissions;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

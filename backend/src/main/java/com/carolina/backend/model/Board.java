@@ -1,5 +1,6 @@
 package com.carolina.backend.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,7 +20,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_boards")
-public class Board {
+public class Board implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
