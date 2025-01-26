@@ -56,7 +56,7 @@ Api de gerenciamento de quadro colaborativo. Ele permite que os usuários criem 
 
 A API utiliza Swagger para documentar os endpoints de forma interativa.
 <div align="center">
-  <img src="./public/swagger.png" width="600"/>
+  <img src="../public/swagger.png" width="700"/>
 </div>
 
 
