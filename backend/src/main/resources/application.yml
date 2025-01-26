@@ -1,0 +1,51 @@
+spring:
+    application: 
+        name: backend
+    output:
+        ansi:
+            enabled: always
+
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                naming:
+                    physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+#Oauth2
+    security:
+        oauth2:
+            client:
+                registration:
+                    google:
+                        client-id: ${CLIENT_ID}
+                        client-secret: ${CLIENT_SECRET}
+                        redirect-uri: ${REDIRECT}
+
+#DB  
+    datasource:
+        url: ${SPRING_DATASOURCE_URL}
+        username: ${DB_USERNAME}
+        password: ${DB_PASSWORD}
+        driver-class-name: org.postgresql.Driver
+
+logging:
+    level:
+        org:
+            springframework:
+                security: DEBUG
+                web: DEBUG
+                cors: DEBUG
+            flywaydb: DEBUG
+            springdoc: DEBUG
+
+server:
+    error:
+        include-stacktrace: always
+        include-message: always
+
+springdoc:
+  paths-to-match:
+  - /**
+  swagger-ui:
+    use-root-path: true
