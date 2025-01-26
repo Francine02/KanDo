@@ -16,6 +16,7 @@ import com.carolina.backend.model.User;
 import com.carolina.backend.repositories.BoardUserLinkRepository;
 import com.carolina.backend.repositories.LinkRepository;
 import com.carolina.backend.services.LinkService;
+import com.carolina.backend.services.UserService;
 
 import lombok.AllArgsConstructor;
 
@@ -24,15 +25,15 @@ import lombok.AllArgsConstructor;
 public class LinkServiceImpl implements LinkService {
 
     private final LinkRepository linkRepository;
-    private final BoardServiceImpl boardServiceImpl;
+    private final BoardServiceImpl boardService;
     private final LinkMapper linkMapper;
     private final BoardMapper boardMapper;
-    private final UserServiceImpl userServiceImpl;
+    private final UserService userService;
     private final BoardUserLinkRepository boardUserLinkRepository;
 
     @Override
     public LinkResponseDTO createLink(Long id) {
-        Board board = boardServiceImpl.findBoard(id);
+        Board board = boardService.findBoard(id);
 
         if (board == null) {
             throw new InvalidRequestException("Board ID is invalid.");
@@ -48,7 +49,7 @@ public class LinkServiceImpl implements LinkService {
 
     @Override
     public BoardResponseDTO getBoardFromLink(String uuid, Authentication authentication) {
-        User user = userServiceImpl.getUser(authentication);
+        User user = userService.getUser(authentication);
 
         Link link = linkRepository.findByUuid(uuid)
                 .orElseThrow(() -> new ResourceNotFoundException("Board not found for UUID: " + uuid));
