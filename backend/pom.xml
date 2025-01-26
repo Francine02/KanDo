@@ -88,7 +88,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.6.0</version>
+			<version>2.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mapstruct</groupId>
@@ -138,6 +138,15 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin> 
+				<groupId>org.flywaydb</groupId> 
+				<artifactId>flyway-maven-plugin</artifactId> 
+				<configuration> 
+					<url>${SPRING_DATASOURCE_URL}</url> 
+					<user>${DB_USERNAME}</user> 
+					<password>${DB_PASSWORD}</password>
 				</configuration>
 			</plugin>
 		</plugins>
