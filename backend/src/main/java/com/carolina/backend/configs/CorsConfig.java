@@ -13,6 +13,7 @@ public class CorsConfig implements WebMvcConfigurer {
                         "http://localhost:5173",
                         "https://kando-wine.vercel.app")
                 .allowedMethods("*")
-                .allowedHeaders("*");
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
